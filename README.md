@@ -9,8 +9,8 @@ This project has been implemented using Angular for the front-end and Spring Boo
 
 ### Steps to Run the Application
 
-1. Download the folder on the computer. Open the downloaded folder in **CMD**
-2. Move to the notesapp folder using command **```cd notesapp```**
+1. Clone the repository.
+2. Open Terminal window in root folder. And run command ```cd notesapp``` to move to backend folder.
 3. Now run command **```mvn clean package```** to create jar file in the **target** folder.
 4. The jar file is created in target folder of notesapp. Run command **```cd target```** to move to the target folder.
 5. Before starting backend server create a database in MySQL named **```notesapp```**
