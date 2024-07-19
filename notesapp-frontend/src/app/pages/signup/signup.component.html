@@ -1,0 +1,87 @@
+<section class="wrapper h-100 h-custom py-md-4 py-sm-4">
+  <div class="container py-4 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-95">
+      <div class="col-lg-8 col-xl-6">
+        <div class="card rounded-3 shadow bg-white rounded">
+          <div class="card-body p-3 p-md-5 text-center">
+            <h3 class="mb-5 pb-2 pb-md-0 mb-md-4 px-md-2">Register Here</h3>
+
+            <div *ngIf="message" class="alert alert-danger p-1 text-center" role="alert">
+              {{ message }}
+            </div>
+
+            <form class="px-md-2 px-sm-3 mt-3" #registerForm="ngForm" (ngSubmit)="registerUser(registerForm)">
+              <div class="row mb-3 justify-content-center">
+                <div class="col-md-12 col-sm-10 form-outline mb-sm-3">
+                  <input type="email" id="email" name="username" class="form-control" placeholder="Email" required
+                    ngModel email [(ngModel)]="username" #emailInput="ngModel" />
+
+                  <div *ngIf="emailInput.invalid && emailInput.touched" class="text-danger text-start">
+                    <div *ngIf="emailInput.errors?.['required']">*Required</div>
+                    <div *ngIf="emailInput.errors?.['email']">
+                      *Invalid email format
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-3 justify-content-center">
+                <div class="col-md-6 col-sm-10 form-outline mb-2">
+                  <input type="text" id="fname" name="firstName" class="form-control" placeholder="First Name" required
+                    ngModel [(ngModel)]="fname" #fnameInput="ngModel" />
+                  <div *ngIf="!fname && fnameInput.touched" class="text-danger text-start">
+                    *Required
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-10 form-outline mb-2">
+                  <input type="text" id="lname" name="lastName" class="form-control" placeholder="Last Name" required
+                    ngModel [(ngModel)]="lname" #lnameInput="ngModel" />
+                  <div *ngIf="!lname && lnameInput.touched" class="text-danger text-start">
+                    *Required
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-3 justify-content-center">
+                <div class="col-md-6 col-sm-10 form-outline mb-2">
+                  <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                    required ngModel [(ngModel)]="password" #passInput="ngModel" [minlength]="8" />
+                  <div *ngIf="!password && passInput.touched" class="text-danger text-start">
+                    *Required
+                  </div>
+                  <div *ngIf="passInput.touched && passInput.errors?.['minlength']" class="text-danger text-start">
+                    *Atleast 8 characters required</div>
+                </div>
+                <div class="col-md-6 col-sm-10 form-outline mb-2">
+                  <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
+                    placeholder="Confirm Password" required [(ngModel)]="confirmPass" #confirmPassInput="ngModel" />
+                  <div *ngIf="!confirmPass && confirmPassInput.touched" class="text-danger text-start">
+                    *Required
+                  </div>
+                  <div *ngIf="!validatePassword() && confirmPassInput.touched" class="text-danger text-start">
+                    *Passwords do not match
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center mb-1 mt-4">
+                <button type="submit" class="btn btn-outline-dark me-3 px-4 rounded-5">
+                  Submit
+                </button>
+                <button class="btn btn-outline-danger rounded-5" routerLink="/">
+                  Cancel
+                </button>
+
+              </div>
+              
+            </form>
+
+            <div class="mt-4 text-end">
+              <a href="login" class="text-secondary">Have an account already?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

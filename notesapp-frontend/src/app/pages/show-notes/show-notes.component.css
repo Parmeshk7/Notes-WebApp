@@ -1,0 +1,39 @@
+.component-wrapper{
+    min-height: 84vh;
+    background-color: #ebf1ff;
+
+}
+
+.card{
+    cursor: pointer;
+    background-color: #fffceb;
+    transition: box-shadow 0.3s ease-in-out;
+
+}
+
+.card:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.icon{
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.icon:hover{
+    transform: scale(1.3);
+}
+
+
+.outlined {
+    border: 1px solid currentColor;
+    padding: 4px;
+    transition: all 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  .solid {
+    background-color: currentColor;
+    color: white; /* Change text color to white when solid */
+    transition: all 0.3s ease; /* Smooth transition on hover */
+  }
+  

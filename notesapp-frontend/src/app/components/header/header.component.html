@@ -1,0 +1,11 @@
+<nav class="navbar px-md-5 px-sm-3 px-4 py-3 w-100 shadow w-100">
+    <div class="row w-100">
+      <div class="col-6">
+          <div class="fs-3 fw-bold"><span class="logo" routerLink="/">NoteIt Web</span></div>
+      </div>
+      
+      <div class="col-6 text-end">
+          <button *ngIf="isLoggedIn()" class="btn btn-danger px-4 rounded-0" (click)="handleLogoutBtn()">Logout</button>
+      </div>
+    </div>
+  </nav>

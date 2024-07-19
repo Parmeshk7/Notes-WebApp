@@ -1,0 +1,53 @@
+<div class="wrapper">
+
+    <div class="container py-5 px-3">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 col-md-9 col-sm-10 ">
+                <div class="text-center py-3 pb-5 px-3 shadow bg-light">
+                    <h4 class="py-3">Add New Note</h4>
+
+                    <form #addNoteForm="ngForm" (ngSubmit)="handleAddNote(addNoteForm)">
+                        <div class="row justify-content-center mb-3">
+                            <div class="col-lg-9 col-md-9 col-sm-10">
+                                <input type="text" class="form-control" name="title" placeholder="Title Here"
+                                    ngModel #titleInput="ngModel" [pattern]="'^[a-zA-Z0-9@,;*&+\\- ]+$'">
+                                <div *ngIf="titleInput.touched && titleInput.errors?.['required']"
+                                    class="text-danger text-start">*Required</div>
+                                <div *ngIf="titleInput.errors?.['pattern']" class="text-danger text-start">Ony @ , ; & *
+                                    + - special characters are allowed</div>
+
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9 col-md-9 col-sm-10">
+                                <textarea cols="50" rows="8" class="form-control" name="content"
+                                    placeholder="What's in your mind?.." required ngModel #contentInput="ngModel" [(ngModel)]="content"
+                                    [pattern]="'^[a-zA-Z0-9@,;*&+\\- \n]+$'" ></textarea>
+
+                                <div *ngIf="contentInput.touched && contentInput.errors?.['required']"
+                                    class="text-danger text-start">*Required</div>
+                                <div *ngIf="contentInput.errors?.['pattern']" class="text-danger text-start">*Ony @ , ;
+                                    &
+                                    * + - special characters are allowed</div>
+                                <div *ngIf="content.length > 500" class="text-danger text-start">*Maximum
+                                    length exceeded (500 characters)</div>
+
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-dark px-4 rounded-5 mt-4">Add Note</button>
+
+                    </form>
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

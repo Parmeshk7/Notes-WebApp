@@ -1,0 +1,44 @@
+<div class="component-wrapper">
+    <div class="container py-4">
+
+        <div class="d-flex justify-content-center py-3 add-note-btn">
+            <button class="btn btn-outline-success px-5" routerLink="/add">Add New Note</button>
+        </div>
+
+        <div class="wrapper py-4">
+            <div *ngFor="let note of notes" class="px-3 py-3">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">{{note.title}}</h5>
+                                    <mat-icon class="icon fs-2 material-symbols-outlined" (click)="deleteNote(note.noteId)">delete</mat-icon>
+
+                                </div>
+                                
+                                <h6 class="card-subtitle mb-2 text-muted">{{note.createdAt | date:'dd-MMM-YYYY'}}</h6>
+                                <p class="card-text">
+                                    {{note.content}}
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <div *ngIf="notes.length === 0" class="container py-5 px-5">
+        <div class="msg-card border py-5 bg-light">
+            <div class="text-danger fs-4 fw-medium text-center">This space is ready and waiting for your wonderful notes
+                :)</div>
+        </div>
+    </div>
+</div>
